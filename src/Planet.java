@@ -57,9 +57,14 @@ public class Planet {
             if (!p.equals(this)) {
                 result += calcForceExertedByY(p);
             }
-
         }
         return result;
+    }
+
+    public void update(double seconds, double xforce, double yforce) {
+        double accX = xforce / myMass;
+        double accY = yforce / myMass;
+
     }
 
 }
