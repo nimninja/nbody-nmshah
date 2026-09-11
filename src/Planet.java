@@ -28,4 +28,9 @@ public class Planet {
     public double calcDistance(Planet p) {
         return Math.sqrt(Math.pow(p.myXPos - myXPos, 2) + Math.pow(p.myYPos - myYPos, 2));
     }
+
+    public double calcForceExertedBy(Planet p) {
+        return (6.67 * Math.pow(10,-11) * p.myMass * myMass) / Math.pow(p.calcDistance(this),2);
+    }
+
 }
