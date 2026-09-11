@@ -33,4 +33,33 @@ public class Planet {
         return (6.67 * Math.pow(10,-11) * p.myMass * myMass) / Math.pow(p.calcDistance(this),2);
     }
 
+    public double calcForceExertedByX(Planet p) {
+        return calcForceExertedBy(p) * (p.myXPos - myXPos) / calcDistance(p);
+    }
+
+    public double calcForceExertedByY(Planet p) {
+        return calcForceExertedBy(p) * (p.myYPos - myYPos) / calcDistance(p);
+    }
+
+    public double calcNetForceExertedByX(Planet[] planets) {
+        double result = 0;
+        for (Planet p : planets) {
+            if (!p.equals(this)) {
+                result += calcForceExertedByX(p);
+            }
+        }
+        return result;
+    }
+
+    public double calcNetForceExertedByY(Planet[] planets) {
+        double result = 0;
+        for (Planet p : planets) {
+            if (!p.equals(this)) {
+                result += calcForceExertedByY(p);
+            }
+
+        }
+        return result;
+    }
+
 }
