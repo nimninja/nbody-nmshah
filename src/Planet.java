@@ -25,9 +25,7 @@ public class Planet {
         myFileName = p.myFileName;
     }
 
-
-    public static void main(String[] args) {
-
-
+    public double calcDistance(Planet p) {
+        return Math.sqrt(Math.pow(p.myXPos - myXPos, 2) + Math.pow(p.myYPos - myYPos, 2));
     }
 }
