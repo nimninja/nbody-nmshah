@@ -12,10 +12,10 @@ public class NBody {
 
         String fname = "./data/planets.txt";
 
-		/* uncomment after you create Planet class
+		// uncomment after you create Planet class
 
 		Planet[] planets = null; // readPlanets(fname);
-        */
+        //
 
         double radius = 0.0; // readRadius(fname);
 
