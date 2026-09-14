@@ -20,6 +20,27 @@ public class NBody {
         return 0;
     }
 
+    public static Planet[] readPlanets(String fname) {
+        try {
+            Scanner scan = new Scanner(new File(fname));
+            int num = scan.nextInt();
+            Planet[] planets = new Planet[num];
+            scan.nextDouble();
+            for (int i = 0; i < num; i++) {
+                planets[i] = new Planet(scan.nextDouble(), scan.nextDouble(), scan.nextDouble(),
+                scan.nextDouble(), scan.nextDouble(), scan.next());
+            }
+
+            scan.close();
+            return planets;
+        } catch (FileNotFoundException e) {
+            // print error message, call System.exit()
+            System.out.println("File not found!");
+            System.exit(-1);
+        }
+        return new Planet[0];
+    }
+
     public static void main(String[] args) {
         double totalTime = 157788000.0;
         double dt = 25000.0;
@@ -34,10 +55,10 @@ public class NBody {
 
 		// uncomment after you create Planet class
 
-		Planet[] planets = null; // readPlanets(fname);
+		Planet[] planets = readPlanets(fname); // readPlanets(fname);
         //
 
-        double radius = 0.0; // readRadius(fname);
+        double radius = readRadius(fname); // readRadius(fname);
 
 		// uncomment after you create Planet class
 
@@ -53,6 +74,10 @@ public class NBody {
 		//
         StdDraw.setScale(-radius, radius);
         StdDraw.picture(0, 0, "images/starfield.jpg");
+
+        for (int i = 0; i < planets.length; i++) {
+            planets[i].draw();
+        }
 
         for (double t = 0.0; t < totalTime; t += dt) {
 

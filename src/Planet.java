@@ -68,8 +68,10 @@ public class Planet {
         myYVel = myYVel + accY * seconds;
         myXPos = myXPos + myXVel * seconds;
         myYPos = myYPos + myYVel * seconds;
+    }
 
-
+    public void draw() {
+        StdDraw.picture(myXPos, myYPos, "images/"+myFileName);
     }
 
 }
